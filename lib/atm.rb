@@ -1,9 +1,14 @@
 # ./lib/atm.rb
 
 class Atm
-  attr_accessor :funds
+  attr_accessor :balance
 
   def initialize
-    @funds = 1000
+    @balance = 1000
   end
+
+  def withdraw(amount)
+    @balance -= amount
+  end
+
 end
