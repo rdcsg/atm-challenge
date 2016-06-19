@@ -6,4 +6,8 @@ class Atm
     @funds = 1000
   end
 
+
+  def withdraw(amount)
+  end
+
 end
