@@ -17,10 +17,10 @@ class Atm
 
   #def withdraw(amount, account)
   def withdraw(amount)
-    when amount <= balance
+    case
+    when (amount <= @balance) then
       @balance -= amount
       expected_output = success_output
-      #@account_holder_id = account
     else
       expected_output = failure_output
     end
@@ -29,7 +29,7 @@ class Atm
 
   #def account(account_holder_id)
   def account
-    @account_holder_id
+    @account
   end
 
 
