@@ -1,19 +1,19 @@
 # ./spec/atm_spec.rb
 
-require './lib/atm.rb'
+require './lib/atm1st.rb'
 
 describe Atm do
 
   let(:account) { class_double('Account') }
 
   before do
-    allow(account).to receive(:balance).and_return(100)
+    allow(account).to receive(:balance).and_return(1000)
     allow(account).to receive(:balance=)
   end
 
 
   it 'has 1000$ on initialize' do
-    expect(subject.balance).to eq 1000
+    expect(subject.funds).to eq 1000
   end
 
 
@@ -30,7 +30,7 @@ describe Atm do
 
   it 'allow withdrawal if account has enough balance' do
     expected_output = 'success' #{ status: true, message: 'success', date: Date.today, amount: 45}
-    expect(subject.withdraw(45, account)).to eq expected_output
+    expect(subject.withdraw(45)).to eq expected_output
   end
 
 end

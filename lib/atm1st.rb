@@ -1,7 +1,7 @@
-# ./lib/atm.rb
+# ./lib/atm1st.rb
 
 class Atm
-  attr_accessor :balance, :account
+  attr_accessor :balance, :account, :funds
 
   def initialize
     @balance = 1000
@@ -9,24 +9,20 @@ class Atm
     @funds = 1000
   end
 
-  expected_output = Hash.new
-  success_output = { status: true, message: 'Success', date: Date.today, amount: amount}
-  failure_output = { status: false, message: 'Withdrawal failed, insufficient funds.', date: Date.today}
+  #expected_output = Hash.new
+  #success_output = { status: true, message: 'Success', date: Date.today, amount: amount}
+  #failure_output = { status: false, message: 'Withdrawal failed, insufficient funds.', date: Date.today}
 
-  def withdraw(amount, account)
+  def withdraw(amount)
     case
-    when (@funds >= amount) then
-      case
-      when (amount <= @balance) then
-        @balance -= amount
-        'success' #expected_output = success_output
-      else
-        'failed'
-        #expected_output = failure_output
-      end
+    when (amount <= @funds ) && (amount <= @balance) then
+      @balance -= amount
+      'success' #expected_output = success_output
     else
+      'failed'
       #expected_output = failure_output
     end
-    end
   end
+
+
 end
