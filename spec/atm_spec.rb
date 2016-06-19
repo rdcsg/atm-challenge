@@ -9,6 +9,7 @@ describe Atm do
   before do
     # "Before each test we need to add an attr of 'balance'
     # to the 'account' object and set the value '100' "
+    #
     # why? Aaah.. it's just for testing purposes, it's like a reset.
     allow(account).to receive(:balance).and_return(100)
 
@@ -18,12 +19,12 @@ describe Atm do
   end
 
 
-  it 'has 1000$ on initialize' do
-    expect(subject.balance).to eq 1000
-  end
+  #it 'has 1000$ on initialize' do
+  #  expect(subject.balance).to eq 1000
+  #end
 
 
-   it 'has an unspecified account'
+   it 'has an unspecified account that belongs to the bank'
     expect(subject.account).to eq 'bank'
   end
 
