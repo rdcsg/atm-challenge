@@ -4,6 +4,7 @@ class Atm
 
   def initialize
     @funds = 1000
+    @actual_pin = 1234
   end
 
 
