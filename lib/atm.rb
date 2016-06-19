@@ -1,6 +1,7 @@
 class Atm
 
-  attr_accessor :funds
+  attr_accessor :funds, :account
+  amount = 0
 
   def initialize
     @funds = 1000
