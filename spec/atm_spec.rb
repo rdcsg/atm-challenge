@@ -42,9 +42,10 @@ describe Atm do
     #
     # thinking about it we should create an object for this instead.
     # lets initiate that object up top and set expectations here
-    expect(subject.account).to eq 'Unknown account holder (unspecified account_holder_id).'
+    #expect(subject.account).to eq 'Unknown account holder (unspecified account_holder_id).'
     # hey, thinking abt it this is not the account holder, it's just the account container,
     # that will be connected to the account_holder object and it can continue as its own object
+    expect(subject.account).to eq 'Unknown account'
 
   end
 
@@ -62,7 +63,8 @@ describe Atm do
 
     # tell the atm both how much money to take and from which account,
     # so it can check the balance in the account before doing the withdrawal
-    expect(subject.withdraw(45, account)).to eq expected_output
+    expect(subject.withdraw(45)).to eq expected_output
+    #expect(subject.withdraw(45, account)).to eq expected_output
   end
 
 end

@@ -4,13 +4,14 @@ class Atm
   attr_accessor :balance
   #attr_accessor :account_holder_id
 
-  success_output = Hash.new { |hash, key| hash[key] =  }
-  failure_output = {}
-  expected_output = { status: true, message: 'success', date: Date.today, amount: amount}
+  expected_output = Hash.new
 
   def initialize
     @balance = 1000
-    @account_holder_id = 'Unknown account holder (unspecified account_holder_id).'
+    @account = 'Unknown account'
+    #@account_holder_id = 'Unknown account holder (unspecified account_holder_id).'
+    success_output = { status: true, message: 'Success', date: Date.today, amount: amount}
+    failure_output = { status: false, message: 'Withdrawal failed, insufficient funds.', date: Date.today}
   end
 
 
@@ -18,12 +19,11 @@ class Atm
   def withdraw(amount)
     when amount <= balance
       @balance -= amount
-
+      expected_output = success_output
       #@account_holder_id = account
     else
-      expected_output = { status: false, message: 'Withdrawal failed, insufficient funds.', date: Date.today, amount: amount}
+      expected_output = failure_output
     end
-    puts expected_output
   end
 
 
