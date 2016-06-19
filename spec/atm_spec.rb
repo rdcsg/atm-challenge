@@ -17,6 +17,12 @@ describe Atm do
   end
 
 
+  it 'reduces funds at withdrawal' do
+    subject.withdraw 50
+    expect(subject.funds).to eq 950
+  end
+
+
 #   it 'has an unspecified account' do
 #    expect(subject.account).to eq 'Unknown account'
 #  end
