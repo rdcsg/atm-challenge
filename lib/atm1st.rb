@@ -4,9 +4,9 @@ class Atm
   attr_accessor :balance, :account, :funds
 
   def initialize
-    @balance = 1000
-    @account = 'Unknown account'
     @funds = 1000
+    @balance = 100
+    @account = 'Unknown account'
   end
 
   #expected_output = Hash.new
@@ -16,6 +16,7 @@ class Atm
   def withdraw(amount)
     case
     when (amount <= @funds ) && (amount <= @balance) then
+      @funds -= amount
       @balance -= amount
       'success' #expected_output = success_output
     else

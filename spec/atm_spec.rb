@@ -7,7 +7,7 @@ describe Atm do
   let(:account) { class_double('Account') }
 
   before do
-    allow(account).to receive(:balance).and_return(1000)
+    allow(account).to receive(:balance).and_return(100)
     allow(account).to receive(:balance=)
   end
 
@@ -22,9 +22,10 @@ describe Atm do
   end
 
 
-  it "reduces balance at withdrawal" do
+  it "reduces balance AND funds at withdrawal" do
     subject.withdraw 50
-    expect(subject.balance).to eq 950
+    expect(subject.balance).to eq 50
+    expect(subject.funds).to eq 950
   end
 
 
