@@ -1,10 +1,10 @@
 class Atm
 
-  attr_accessor :funds, #:actual_pin#:account
+  attr_accessor :funds, :pin_code#:account
 
   def initialize
     @funds = 1000
-    #@actual_pin = 1234
+    @pin_code = 1234
   end
 
 
