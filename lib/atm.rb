@@ -1,8 +1,7 @@
 # ./lib/atm.rb
 
 class Atm
-  attr_accessor :balance
-  #attr_accessor :account_holder_id
+  attr_accessor :balance, :account
 
   def initialize
     @balance = 1000
@@ -10,10 +9,11 @@ class Atm
   end
 
 
-  #def account(account_holder_id)
+
   def account
     @account
   end
+
 
 
   #def withdraw(amount, account)
@@ -21,9 +21,10 @@ class Atm
     case
     when (amount <= @balance) then
       @balance -= amount
-      expected_output = { status: true, message: 'Success', date: Date.today, amount: amount}
+      'success' #{ status: true, message: 'Success', date: Date.today, amount: amount}
     else
-      expected_output = { status: false, message: 'Withdrawal failed, insufficient funds.', date: Date.today}
+      'failed withdrawal'
+    #  expected_output = { status: false, message: 'Withdrawal failed, insufficient funds.', date: Date.today}
     end
   end
 

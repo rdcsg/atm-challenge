@@ -59,12 +59,12 @@ describe Atm do
 
   it 'allow withdrawal if account has enough balance' do
     # tell the test that how the expected hash-output from a successful withdrawal looks like
-    expected_output = { status: true, message: 'success', date: Date.today, amount: 45}
+    expected_output = 'success' #{ status: true, message: 'success', date: Date.today, amount: 45}
 
     # tell the atm both how much money to take and from which account,
     # so it can check the balance in the account before doing the withdrawal
-    expect(subject.withdraw(45)).to eq expected_output
-    #expect(subject.withdraw(45, account)).to eq expected_output
+    #expect(subject.withdraw(45)).to eq expected_output
+    expect(subject.withdraw(45, account)).to eq expected_output
   end
 
 end
