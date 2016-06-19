@@ -18,7 +18,7 @@ class Atm
     when (amount <= @funds ) && (amount <= @balance) then
       @funds -= amount
       @balance -= amount
-      'success' #expected_output = success_output
+      'success' + 1 + ' time' #expected_output = success_output
     else
       'failed'
       #expected_output = failure_output
