@@ -5,11 +5,12 @@ class Atm
 
   def initialize
     @balance = 1000
-    @account = 'bank'
+    @account_holder = 'bank'
   end
 
   def withdraw(amount, account)
     @balance -= amount
+    @account_holder = account
   end
 
 end
