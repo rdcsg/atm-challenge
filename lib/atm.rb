@@ -10,14 +10,7 @@ class Atm
 
 
 
-  def account
-    @account
-  end
-
-
-
-  #def withdraw(amount, account)
-  def withdraw(amount)
+  def withdraw(amount, account)
     case
     when (amount <= @balance) then
       @balance -= amount
@@ -27,7 +20,6 @@ class Atm
     #  expected_output = { status: false, message: 'Withdrawal failed, insufficient funds.', date: Date.today}
     end
   end
-
 
 
 end
