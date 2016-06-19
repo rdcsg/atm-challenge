@@ -7,8 +7,10 @@ class Atm
   end
 
 
-  def withdraw(amount)
+  def withdraw(amount, account)
     @funds -= amount
   end
+
+
 
 end
