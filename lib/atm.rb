@@ -1,10 +1,9 @@
 class Atm
 
-  attr_accessor :funds, :pin_code#:account
+  attr_accessor :funds #:account
 
   def initialize
     @funds = 1000
-    @pin_code = 1234
   end
 
 
@@ -13,7 +12,7 @@ class Atm
     when incorrect_pin?(pin_code, account.pin_code) then
       { status: false, message: 'wrong pin', date: Date.today }
     when insufficient_funds_in_account?(amount, account) then
-      { status: true, message: 'insufficient funds', date: Date.today }
+      { status: false, message: 'insufficient funds', date: Date.today }
     when insufficient_funds_in_atm?(amount) then
       { status: false, message: 'insufficient funds in ATM', date: Date.today }
     else
