@@ -19,7 +19,7 @@ describe Atm do
 
 
   it 'reduces funds at withdrawal' do
-    subject.withdraw(50, 1234, pre_set_exp_date, pre_set_exp_date, account)
+    subject.withdraw(50, 1234, pre_set_exp_date, account)
     expect(subject.funds).to eq 950
   end
 
