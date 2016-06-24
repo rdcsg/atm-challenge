@@ -4,7 +4,7 @@ require './lib/atm.rb'
 
 describe Atm do
 
-  let(:account) { class_double('Account', pin_code: 1234) }
+  let(:account) { instance_double('Account', pin_code: 1234, pre_set_exp_date: '04/17') }
 
   before do
     allow(account).to receive(:balance).and_return(100)
@@ -18,9 +18,8 @@ describe Atm do
   end
 
 
-
   it 'reduces funds at withdrawal' do
-    subject.withdraw(50, 1234, account)
+    subject.withdraw(50, 1234, account, pre_set_exp_date: '04/17')
     expect(subject.funds).to eq 950
   end
 
@@ -47,6 +46,13 @@ describe Atm do
   it 'reject withdraw if pin is wrong' do
     expected_output = { status: false, message: 'wrong pin', date: Date.today }
     expect(subject.withdraw(50, 9999, account)).to eq expected_output
+  end
+
+
+  it 'rejects withdrawal if card has expired' do
+    allow(account).to receive(:pre_set_exp_date).and_return('12/15')
+    expected_output = { status: false, message: 'denied, card expired.', date: Date.today }
+    expect(subject.withdraw(6, 1234, account)).to eq expected_output
   end
 
 
