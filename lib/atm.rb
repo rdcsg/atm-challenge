@@ -7,7 +7,7 @@ class Atm
   end
 
 
-  def withdraw(amount, pin_code, account)
+  def withdraw(amount, pin_code, pre_set_exp_date, account)
     case
     when incorrect_pin?(pin_code, account.pin_code) then
       { status: false, message: 'wrong pin', date: Date.today }
