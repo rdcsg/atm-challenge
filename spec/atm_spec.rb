@@ -1,6 +1,7 @@
 # ./spec/atm_spec.rb
 
 require './lib/atm.rb'
+require 'date'
 
 describe Atm do
 
@@ -50,7 +51,7 @@ describe Atm do
 
 
   it 'rejects withdrawal if card has expired' do
-    allow(account).to receive(:'04/17').and_return('12/15')
+    allow(account).to receive(:exp_date).and_return('12/15')
     expected_output = { status: false, message: 'denied, card expired.', date: Date.today }
     expect(subject.withdraw(6, 1234, account)).to eq expected_output
   end
