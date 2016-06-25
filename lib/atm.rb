@@ -31,7 +31,7 @@ private
     entered_pin_code != pre_set_pin_code
   end
 
-  def card_expired?(exp_date)
+  def card_expired?(pre_set_exp_date)
     # use strptime (a date function) for format the expiration date
     # so that a comparison with today's date is possible
     Date.today > Date.strptime(exp_date, '%m %y')
