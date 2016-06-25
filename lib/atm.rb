@@ -1,3 +1,5 @@
+#  .lib/atm.rb
+
 class Atm
 
   attr_accessor :funds
@@ -35,7 +37,7 @@ private
   def card_expired?(exp_date)
     # use strptime (a date function) to format the expiration date
     # so that a comparison with today's date is possible
-    Date.today > Date.strptime(exp_date, '%m %y')
+    Date.today > Date.strptime(exp_date, '%m/%y')
   end
 
 
