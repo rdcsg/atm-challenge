@@ -7,7 +7,7 @@ class Atm
   end
 
 
-  def withdraw(amount, pin_code, exp_date, account)
+  def withdraw(amount, pin_code, account)
     case
     when incorrect_pin?(pin_code, account.pin_code) then
       { status: false, message: 'wrong pin', date: Date.today }
@@ -31,8 +31,9 @@ private
     entered_pin_code != pre_set_pin_code
   end
 
+
   def card_expired?(pre_set_exp_date)
-    # use strptime (a date function) for format the expiration date
+    # use strptime (a date function) to format the expiration date
     # so that a comparison with today's date is possible
     Date.today > Date.strptime(pre_set_exp_date, '%m %y')
   end
