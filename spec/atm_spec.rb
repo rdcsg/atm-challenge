@@ -1,24 +1,24 @@
 # ./spec/atm_spec.rb
 
 require './lib/atm.rb'
-require 'date'
+#require 'date'
 
 describe Atm do
-
+=begin
   let(:account) { instance_double('Account', pin_code: 1234, exp_date: '04/17') }
 
   before do
     allow(account).to receive(:balance).and_return(100)
     allow(account).to receive(:balance=)
   end
-
+=end
 
 
   it 'has 1000$ on initialize' do
     expect(subject.funds).to eq 1000
   end
 
-
+=begin
   it 'reduces funds at withdrawal' do
     subject.withdraw(50, 1234, account)
     expect(subject.funds).to eq 950
@@ -58,6 +58,6 @@ describe Atm do
 
 
 
-
+=end
 
 end
